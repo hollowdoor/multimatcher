@@ -1,6 +1,11 @@
 var minimatch = require("minimatch"),
     cwd = process.cwd();
 
+/*
+git remote add origin https://github.com/hollowdoor/multimatcher.git
+git push -u origin master
+*/
+
 module.exports = Matcher;
 
 function Matcher(patterns){
