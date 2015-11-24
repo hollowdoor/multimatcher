@@ -67,3 +67,16 @@ var m = new Matcher(['*.js']);
 //Will print ['one.js', 'two.js']
 console.log(m.find('one.js', 'two.js', 'three.xml']));
 ```
+
+matcher.index(name)
+-------------------
+
+Find the index of name in **patterns**.
+
+If the name string does not match a pattern then the returned value equals `-1`.
+
+```javascript
+var m = new Matcher(['*.xml', '*.js']);
+//Will print 1
+console.log(m.index('file.js'));
+```
