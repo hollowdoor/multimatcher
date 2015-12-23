@@ -1,6 +1,6 @@
 {
   "name": "multimatcher",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "directories": {
@@ -13,5 +13,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Quentin Engles <hollowdoor99@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+        "type": "git",
+        "url": "https://github.com/hollowdoor/multimatcher.git"
+    }
 }
