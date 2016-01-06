@@ -4,7 +4,12 @@ multimatcher
 Install
 -------
 
-npm install multimatcher
+`npm install multimatcher`
+
+News
+----
+
+Version 2 of `multimatcher` has breaking changes. There is now an options argument, and the default for matching basename was true, but is now false.
 
 Usage
 -----
@@ -57,8 +62,16 @@ The order of patterns checking is:
 2.	glob pattern
 3.	End of file name string
 
-matcher.find(array)
--------------------
+API
+---
+
+### multimatcher(array, options) -> matcher
+
+The first argument to `multimatcher` should be an array of regular expression, glob strings, or path names.
+
+The `options` argument should be the same as [minimatch](https://www.npmjs.com/package/minimatch), and will only be used to control glob patterns.
+
+### matcher.find(array)
 
 Using **patterns** find all the file name strings that match.
 
@@ -68,8 +81,7 @@ var m = new Matcher(['*.js']);
 console.log(m.find('one.js', 'two.js', 'three.xml']));
 ```
 
-matcher.index(name)
--------------------
+### matcher.index(name)
 
 Find the index of name in **patterns**.
 

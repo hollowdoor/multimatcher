@@ -8,10 +8,12 @@ git push -u origin master
 
 module.exports = Matcher;
 
-function Matcher(patterns){
+function Matcher(patterns, options){
     this.regexes = [];
     this.globs = [];
     this.strings = [];
+
+    this.options = options || {};
 
     var tmp;
 
@@ -25,7 +27,7 @@ function Matcher(patterns){
 
             try{
 
-                minimatch(cwd, patterns[i], {matchBase: true});
+                minimatch(cwd, patterns[i], this.options);
                 this.globs.push({
                     pattern:patterns[i],
                     index: i
@@ -70,7 +72,7 @@ Matcher.prototype.index = function(name){
             return this.regexes[i].index;
 
     for(i=0,l=this.globs.length; i<l; i++)
-        if(minimatch(name, this.globs[i].pattern, {matchBase: true}))
+        if(minimatch(name, this.globs[i].pattern, this.options))
             return this.globs[i].index;
 
     for(i=0,l=this.strings.length; i<l; i++)
