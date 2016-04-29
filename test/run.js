@@ -17,3 +17,9 @@ var m3 = new Matcher(["file.js", "*.txt"]);
 console.log(m3.test('thing/file.js'));
 
 console.log(m3.find(['thing.txt', 'aname', 'space/file.js', 'thing/file.js']));
+
+var m3 = new Matcher(['one', '*.js', 'one', '*.js']);
+
+console.log(m3.indexes('one'));
+
+console.log(m3.indexes('one.js'))

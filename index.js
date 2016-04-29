@@ -82,6 +82,23 @@ Matcher.prototype.index = function(name){
     return -1;
 };
 
+Matcher.prototype.indexes = function(name){
+    var indexes = [];
+    for(i=0,l=this.regexes.length; i<l; i++)
+        if(this.regexes[i].pattern.test(name))
+            indexes.push(this.regexes[i].index);
+
+    for(i=0,l=this.globs.length; i<l; i++)
+        if(minimatch(name, this.globs[i].pattern, this.options))
+            indexes.push(this.globs[i].index);
+
+    for(i=0,l=this.strings.length; i<l; i++)
+        if(this.strings[i].pattern.test(name))
+            indexes.push(this.strings[i].index);
+
+    return indexes;
+};
+
 Matcher.prototype.find = function(names){
     var matched = [];
 

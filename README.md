@@ -92,3 +92,19 @@ var m = new Matcher(['*.xml', '*.js']);
 //Will print 1
 console.log(m.index('file.js'));
 ```
+
+### matcher.indexes(name)
+
+Find all the indexes of name in **patterns**.
+
+If the name string does not match an empty array is returned.
+
+If there are matches an array of indexes returned.
+
+```javascript
+var m = new Matcher(['*.js', '*.xml', '*.js']);
+//Will print [0, 2]
+console.log(m.indexes('file.js'));
+//Will print []
+console.log(m.indexes("I don't match."));
+```
